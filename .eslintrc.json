@@ -20,7 +20,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {},
-  "setting": {
+  "settings": {
     "import/resolver": {
       "typescript": {}
     }
