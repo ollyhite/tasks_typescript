@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { Status } from '../createTaskForm/enums/Status';
 
 export const Task: FC<ITask> = (props): ReactElement => {
+  //  Destructure props
   const {
     title = 'Test Title',
     date = new Date(),
@@ -19,14 +20,15 @@ export const Task: FC<ITask> = (props): ReactElement => {
     onStatusChange = (e) => console.log(e),
     onClick = (e) => console.log(e),
   } = props;
+
   return (
     <Box
       display="flex"
       width="100%"
       justifyContent="flex-start"
       flexDirection="column"
-      mb={2}
-      p={4}
+      mb={4}
+      p={2}
       sx={{
         width: '100%',
         backgroundColor: 'background.paper',
@@ -35,12 +37,12 @@ export const Task: FC<ITask> = (props): ReactElement => {
         borderColor: renderPriorityBorderColor(priority),
       }}
     >
-      {/* Task Header*/}
-      <TaskHeader />
-      {/* Task Description*/}
-      <TaskDescription />
-      {/* Task Footer*/}
-      <TaskFooter />
+      <TaskHeader title={title} date={date} />
+      <TaskDescription description={description} />
+      <TaskFooter
+        onClick={onClick}
+        onStatusChange={onStatusChange}
+      />
     </Box>
   );
 };
